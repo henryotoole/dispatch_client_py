@@ -1,0 +1,11 @@
+setup.py
+src/dispatch_client_py/__init__.py
+src/dispatch_client_py/dispatch_client.py
+src/dispatch_client_py/dispatch_client_test.py
+src/dispatch_client_py/exceptions.py
+src/dispatch_client_py.egg-info/PKG-INFO
+src/dispatch_client_py.egg-info/SOURCES.txt
+src/dispatch_client_py.egg-info/dependency_links.txt
+src/dispatch_client_py.egg-info/entry_points.txt
+src/dispatch_client_py.egg-info/not-zip-safe
+src/dispatch_client_py.egg-info/top_level.txt

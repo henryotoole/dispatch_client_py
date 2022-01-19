@@ -1,0 +1,10 @@
+Metadata-Version: 1.2
+Name: dispatch-client-py
+Version: 0.1.2
+Summary: A python-based client with methods used to communicate with a dispatch server instance over HTTP.
+Home-page: https://github.com/henryotoole/dispatch_client_py
+Author: Josh Reed (henryotoole)
+License: GNUv3
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6.0
