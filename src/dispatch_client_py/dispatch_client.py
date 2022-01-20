@@ -45,6 +45,7 @@ class DispatchClient:
 		
 		# This is a key/value pair set that will be sent along with every request.
 		self.base_data = {} 
+		self.headers = {}
 		
 		# Frontend functions bound with client.bind(fn) will be stored here by key: function_name
 		self.client_functions = {}
@@ -137,7 +138,14 @@ class DispatchClient:
 			If the request times out, the tuple (None, None) is returned.
 		"""
 		try:
-			r = requests.post(url, data=data, files=files, timeout=self.request_timeout, cookies=self._cookies, allow_redirects=False)
+			r = requests.post(
+				url, data=data,
+				files=files,
+				timeout=self.request_timeout,
+				cookies=self._cookies,
+				allow_redirects=False,
+				verify=False,
+				headers=self.headers)
 			self._last_request = r
 			if(r.status_code != 200):
 				self.log_debug("Dispatch request returns non-200 code <" + str(r.status_code) + "> - Debug Info: '" + r.text + "'")
@@ -146,7 +154,7 @@ class DispatchClient:
 				return 200, r.json() # Return the JSON and the 200 code
 			except ValueError as e:
 				return 200, None # No JSON parseable, but we still got a 200
-		except (requests.exceptions.ConnectTimeout, requests.exceptions.ConnectionError):
+		except (requests.exceptions.ConnectTimeout):
 			self.log_debug('Dispatch request has timed out (or had a ConnectionError) after ' + str(self.request_timeout) + ' seconds.')
 		return None, None # Connection timed out, so no code or JSON
 
