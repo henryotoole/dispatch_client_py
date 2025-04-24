@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dispatch_client_py"
+version = "0.2.0"
+description = "Client code to allow python applications to communicate with a server via Dispatch RPC."
+dependencies = [
+	"requests"
+]
+authors = [
+	{name = "Josh Reed"}
+]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+classifiers = [
+	'Operating System :: POSIX :: Linux',
+	'Programming Language :: Python :: 3',
+	'Intended Audience :: Developers'
+]
+
+[project.urls]
+Repository = "https://github.com/henryotoole/dispatch_client_py"
+
+[project.optional-dependencies]
+test = [
+	'pytest'
+]
